@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="logout light">
-                            <img src="../assets/icons/icon-theme.svg" alt="">
+                            <img src="../assets/icons/icon-exit.svg" alt="">
                             <span>Logout</span>
                         </div>
                         <div class="theme light">
@@ -214,11 +214,13 @@
                         &.light {
                             background: var(--color-white);
                             border: solid var(--color-light-line) 1px;
+                            box-shadow: -2px 10px 10px rgb(0 0 0 / 3%), -6px 6px 3px rgb(0 0 0 / 4%), 2px 10px 10px rgb(0 0 0 / 3%), 6px 6px 3px rgb(0 0 0 / 4%);
                         }
 
                         &.dark {
                             background: var(--color-dark-grey);
                             border: solid var(--color-dark-lines) 1px;
+                            box-shadow: -2px 10px 10px rgb(0 0 0 / 10%), -6px 6px 3px rgb(0 0 0 / 12%), 2px 10px 10px rgb(0 0 0 / 10%), 6px 6px 3px rgb(0 0 0 / 12%);
                         }
 
                         .profile {

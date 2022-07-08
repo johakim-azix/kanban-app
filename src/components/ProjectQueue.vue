@@ -8,10 +8,10 @@
         </div>
         <ul class="queue light">
             <!--todo : should trough an array here to render this -->
-            <project-item/>
-            <project-item/>
-            <project-item/>
-            <project-item/>
+            <project-item @onProjectBoardOpeningIntent="openProjectBoard"/>
+            <project-item @onProjectBoardOpeningIntent="openProjectBoard"/>
+            <project-item @onProjectBoardOpeningIntent="openProjectBoard"/>
+            <project-item @onProjectBoardOpeningIntent="openProjectBoard"/>
         </ul>
     </div>
 </template>
@@ -22,6 +22,12 @@
         name: "ProjectQueue",
         components:{
             ProjectItem,
+        },
+        methods:{
+            openProjectBoard(projectObj){
+                console.log(projectObj)
+                this.$emit("onProjectBoardOpening", "the project")
+            }
         }
     }
 </script>

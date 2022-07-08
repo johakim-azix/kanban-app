@@ -3,23 +3,30 @@
         <div class="head">
             <strong>Collaborations</strong>
         </div>
-        <ul class="queue light" >
-            <collaboration-item item-id="col-porject_id"/>
-            <collaboration-item item-id="col-porject_id_1"/>
-            <collaboration-item item-id="col-porject_id_2"/>
-            <collaboration-item item-id="col-porject_id_3"/>
-            <collaboration-item item-id="col-porject_id_4"/>
-            <collaboration-item item-id="col-porject_id_5"/>
+        <ul class="queue light">
+            <collaboration-item item-id="col-porject_id" @onProjectBoardOpening="openProjectBoard"/>
+            <collaboration-item item-id="col-porject_id_1" @onProjectBoardOpening="openProjectBoard"/>
+            <collaboration-item item-id="col-porject_id_2" @onProjectBoardOpening="openProjectBoard"/>
+            <collaboration-item item-id="col-porject_id_3" @onProjectBoardOpening="openProjectBoard"/>
+            <collaboration-item item-id="col-porject_id_4" @onProjectBoardOpening="openProjectBoard"/>
+            <collaboration-item item-id="col-porject_id_5" @onProjectBoardOpening="openProjectBoard"/>
         </ul>
     </div>
 </template>
 
 <script>
     import CollaborationItem from "@/components/CollaborationItem";
+
     export default {
         name: "CollaborationQueue",
-        components:{
+        components: {
             CollaborationItem
+        },
+        methods: {
+            openProjectBoard(projectObj) {
+                console.log(projectObj)
+                this.$emit("onProjectBoardOpening", "the project")
+            }
         }
     }
 </script>
@@ -37,7 +44,8 @@
             font-weight: bold;
             font-size: 16px;
             padding: 0 10px;
-            strong{
+
+            strong {
                 color: var(--color-medium-grey);
             }
         }
@@ -49,12 +57,13 @@
             padding: 0;
 
 
-            &.light{
+            &.light {
                 background: var(--color-white);
                 border: solid var(--color-light-line) 1px;
                 box-shadow: 0 10px 10px rgb(0 0 0 / 3%), 0 6px 3px rgb(0 0 0 / 4%);
             }
-            &.dark{
+
+            &.dark {
                 background: var(--color-dark-grey);
                 border: solid var(--color-dark-lines) 1px;
                 box-shadow: 0 10px 10px rgb(0 0 0 / 10%), 0 6px 3px rgb(0 0 0 / 12%);

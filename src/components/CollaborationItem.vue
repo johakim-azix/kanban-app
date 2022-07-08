@@ -12,7 +12,7 @@
         </div>
         <div class="project-drop light">
             <ul class="queue light">
-                <project-item/>
+                <project-item @onProjectBoardOpeningIntent="openProjectBoard"/>
             </ul>
         </div>
     </li>
@@ -27,6 +27,10 @@
         },
         props:["itemId"],
         methods: {
+            openProjectBoard(projectObj){
+                console.log(projectObj)
+                this.$emit("onProjectBoardOpening", "the project")
+            },
             expandProjectsDrop(event) {
                 const paths = event.path
                 let collaborationItem = null

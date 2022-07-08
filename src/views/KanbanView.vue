@@ -2,12 +2,12 @@
     <div class="side-left-frame-layout light">
         <main-header/>
         <div class="scroll-view">
-            <project-queue/>
-            <collaboration-queue/>
+            <project-queue @onProjectBoardOpening="openProjectBoard"/>
+            <collaboration-queue @onProjectBoardOpening="openProjectBoard"/>
         </div>
     </div>
     <div class="side-right-frame-layout light">
-        <board-header/>
+        <board-header @onProjectBoardClosing="closeProjectBoard"/>
         <div class="board" >
             <span id="sideLeftVisibilityToggle" class="project-section-visibility-toggle" @click="toggleSideLeftFrameLayoutVisibility">
                 <img src="../assets/icons/icon-eye-closed.svg" alt="">
@@ -34,6 +34,25 @@
             SectionSlider
         },
         methods:{
+            closeProjectBoard(){
+                const mainFrameLayout = document.getElementsByClassName("main-frame-layout")[0]
+                mainFrameLayout.classList.remove("board")
+                // const items = (document.getElementsByClassName("side-left-frame-layout")[0]).getElementsByClassName("item")
+                // for (let i=0; i<items.length;i++){
+                //     items[i].classList.remove("active")
+                // }
+            },
+            openProjectBoard(projectObj) {
+                console.log(projectObj)
+                const items = (document.getElementsByClassName("side-left-frame-layout")[0]).getElementsByClassName("item")
+                for (let i=0; i<items.length;i++){
+                    items[i].classList.remove("active")
+                }
+                const mainFrameLayout = document.getElementsByClassName("main-frame-layout")[0]
+                mainFrameLayout.classList.add("board")
+
+                /*todo : the correct project details on the project board (has to do with rhe store)*/
+            },
             toggleDropMenu(){
                 const projectDrop = document.getElementById("project-menu-drop")
                 projectDrop.classList.toggle("show")
@@ -107,8 +126,6 @@
                     }
                 }
             }
-
-
 
             .section{
                 border-radius: 4px;

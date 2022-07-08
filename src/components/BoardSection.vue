@@ -7,9 +7,9 @@
                     <span>{{name}} ({{taskCount}})</span>
                 </div>
                 <div class="menu">
-                    <butto class="btn delete"><img src="../assets/icons/icon-plus.svg" alt=""></butto>
+                    <butto class="btn delete"><img src="../assets/icons/icon-trash.svg" alt=""></butto>
                     <div class="edit-task-dropdown">
-                        <button id="" class="btn" @click="showEditSessionForm(this.$el)"><img src="../assets/icons/icon-plus.svg" alt=""></button>
+                        <button id="" class="btn" @click="showEditSessionForm(this.$el)"><img src="../assets/icons/icon-pencil.svg" alt=""></button>
                         <div class="edit-section-form" >
                             <div class="caret light"></div>
                             <div class="content light">
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="task-queue light">
-                <task-item task-item-id="task-ckeck-id_task"/>
+                <task-item task-item-id="task-check-id_task"/>
 <!--                <task-item task-item-id="task-ckeck-id_task1"/>-->
 <!--                <task-item task-item-id="task-ckeck-id_task2"/>-->
 <!--                <task-item task-item-id="task-ckeck-id_task3"/>-->
@@ -316,7 +316,9 @@
                             background: rgba(255, 152, 152,.2);
                         }
                     }
-
+                    img{
+                        height: 16px;
+                    }
 
                 }
                 .edit-task-dropdown{
@@ -358,10 +360,13 @@
                         &.light {
                             border: solid var(--color-light-line) 1px;
                             background: var(--color-white);
+                            box-shadow: -2px 10px 10px rgb(0 0 0 / 3%), -6px 6px 3px rgb(0 0 0 / 4%), 2px 10px 10px rgb(0 0 0 / 3%), 6px 6px 3px rgb(0 0 0 / 4%);
+
                         }
                         &.dark {
                             border: solid var(--color-dark-lines) 1px;
                             background: var(--color-dark-grey);
+                            box-shadow: -2px 10px 10px rgb(0 0 0 / 10%), -6px 6px 3px rgb(0 0 0 / 12%), 2px 10px 10px rgb(0 0 0 / 10%), 6px 6px 3px rgb(0 0 0 / 12%);
                         }
                         .form-header{
                             display: block;
@@ -488,10 +493,12 @@
                         &.light {
                             border: solid var(--color-light-line) 1px;
                             background: var(--color-white);
+                            box-shadow: -2px 10px 10px rgb(0 0 0 / 3%), -6px 6px 3px rgb(0 0 0 / 4%), 2px 10px 10px rgb(0 0 0 / 3%), 6px 6px 3px rgb(0 0 0 / 4%);
                         }
                         &.dark {
                             border: solid var(--color-dark-lines) 1px;
                             background: var(--color-dark-grey);
+                            box-shadow: -2px 10px 10px rgb(0 0 0 / 10%), -6px 6px 3px rgb(0 0 0 / 12%), 2px 10px 10px rgb(0 0 0 / 10%), 6px 6px 3px rgb(0 0 0 / 12%);
                         }
                         .form-header{
                             display: block;
@@ -624,86 +631,6 @@
                     }
                 }
 
-                /*todo : to delete */
-                .dropdown {
-                    position: relative;
-                    .btn {
-                        height: 25px;
-                        width: 25px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        border-radius: 2px;
-                        &:hover {
-                            background: rgba(99, 95, 199, .2);
-                        }
-                    }
-
-                    .drop {
-                        position: absolute;
-                        right: 0;
-                        margin-top: 5px;
-                        min-width: 160px;
-                        display: none;
-                        &.show{
-                            display: block;
-                        }
-                    }
-                    .caret {
-                        width: 5px;
-                        height: 5px;
-                        position: absolute;
-                        right: 10px;
-                        margin-top: -2.5px;
-                        transform: rotateZ(45deg);
-                        &.light {
-                            background: var(--color-white);
-                            border-left: solid var(--color-light-line) 1px;
-                            border-top: solid var(--color-light-line) 1px;
-                        }
-                        &.dark {
-                            background: var(--color-dark-grey);
-                            border-left: solid var(--color-dark-lines) 1px;
-                            border-top: solid var(--color-dark-lines) 1px;
-                        }
-                    }
-                    .content {
-                        padding: 3px 0;
-                        border-radius: 4px;
-                        overflow: hidden;
-                        &>div{
-                            padding: 5px 10px;
-                            display: flex;
-                            align-items: flex-end;
-                            cursor: pointer;
-                            &:last-child{
-                                border-bottom: 0!important;
-                            }
-                            &:hover{
-                                background: rgba(99, 95, 199, .1);
-                            }
-                            img{
-                                width: 20px;
-                                height: 20px;
-                                margin-right: 10px;
-                            }
-                            &.light {
-                                border-bottom: solid var(--color-light-line) 1px;
-                            }
-                            &.dark {
-                                border-bottom: solid var(--color-dark-lines) 1px;
-                            }
-                        }
-                        &.light {
-                            background: var(--color-white);
-                            border: solid var(--color-light-line) 1px;
-                        }
-                        &.dark {
-                            background: var(--color-dark-grey);
-                            border: solid var(--color-dark-lines) 1px;
-                        }
-                    }
-                }
             }
         }
         .task-queue {

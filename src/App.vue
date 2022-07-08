@@ -1,5 +1,5 @@
 <template>
-    <div class="main-frame-layout light">
+    <div class="main-frame-layout light ">
         <router-view/>
     </div>
 </template>
@@ -92,7 +92,19 @@
             grid-template-columns: 300px auto;
         }
         @media screen and (max-width: 600px){
-            grid-template-columns: 100% auto;
+            grid-template-columns: 100% 0;
+            overflow: hidden;
+            .side-right-frame-layout{
+                overflow: hidden;
+                .project-section-visibility-toggle{display: none!important;}
+            }
+            &.board{
+                grid-template-columns: 0 100%;
+                .side-right-frame-layout{
+                    overflow: auto;
+                    .project-section-visibility-toggle{display: flex}
+                }
+            }
         }
     }
 

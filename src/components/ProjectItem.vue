@@ -1,5 +1,5 @@
 <template>
-    <li class="item light">
+    <li @click="showProjectDetails(this.$el)" class="item light">
         <svg class="item__icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -15,7 +15,14 @@
 
 <script>
     export default {
-        name: "ProjectItem"
+        name: "ProjectItem",
+        props: ["projectItem"],
+        methods: {
+            showProjectDetails(element) {
+                this.$emit("onProjectBoardOpeningIntent", "the project")
+                element.classList.add("active")
+            }
+        }
     }
 </script>
 
@@ -26,6 +33,31 @@
         justify-content: space-between;
         padding: 0 0 0 10px;
         cursor: pointer;
+        transition: background-color ease-in-out .15s;
+
+        &.light {
+            &:hover {
+                background: rgba(99, 95, 199, .05);
+            }
+
+            &.active {
+                background: rgba(99, 95, 199, .1);
+                @media screen and (max-width: 600px) {
+                    background: transparent;
+                }
+            }
+        }
+
+        &.dark {
+            &:hover {
+                background: rgba(99, 95, 199, .1);
+            }
+
+            &.active {
+                background: rgba(99, 95, 199, .15);
+            }
+        }
+
 
         &:last-child {
             & > div:last-child {
@@ -51,10 +83,12 @@
             justify-content: space-between;
             width: calc(100% - 40px);
             padding: 12px 10px 12px 0;
-            &.light{
+
+            &.light {
                 border-bottom: solid var(--color-light-line) 1px;
             }
-            &.dark{
+
+            &.dark {
                 border-bottom: solid var(--color-dark-lines) 1px;
             }
         }
