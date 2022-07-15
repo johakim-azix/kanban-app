@@ -1,13 +1,13 @@
 <template>
     <div class="head light">
         <div class="title">
-            <button class="btn" @click="hideProjectDetails"></button>
+            <button class="btn" @click="hideProjectDetails"><img src="../assets/icons/icon-arrow-left.svg" alt=""></button>
             <span>Project title</span>
         </div>
         <div class="options">
             <div class="control light">
                 <button class="btn light">
-                    <img src="../assets/icons/icon-chat.svg" alt="">
+                    <img style="height: 15px" src="../assets/icons/icon-chat.svg" alt="">
                 </button>
                 <span>1</span>
             </div>
@@ -15,7 +15,7 @@
             <div class="project-member-drop">
                 <div class="control light">
                     <button class="btn light" @click="showProjectMembersDrop(this.$el)">
-                        <img src="../assets/icons/icon-user.svg" alt="">
+                        <img style="height: 15px" src="../assets/icons/icon-user.svg" alt="">
                     </button>
                     <span>2</span>
                 </div>
@@ -121,17 +121,7 @@
             </div>
 
             <button style="" class="btn light">
-                <img src="../assets/icons/icon-pencil.svg" alt="">
-                <svg fill="#828FA3" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 306.637 306.637"
-                     style="enable-background:new 0 0 306.637 306.637;" xml:space="preserve">
-                    <g>
-                        <path d="M12.809,238.52L0,306.637l68.118-12.809l184.277-184.277l-55.309-55.309L12.809,238.52z M60.79,279.943l-41.992,7.896
-                            l7.896-41.992L197.086,75.455l34.096,34.096L60.79,279.943z"/>
-                        <path d="M251.329,0l-41.507,41.507l55.308,55.308l41.507-41.507L251.329,0z M231.035,41.507l20.294-20.294l34.095,34.095
-                            L265.13,75.602L231.035,41.507z"/>
-                    </g>
-                </svg>
+                <img style="height: 22px" src="../assets/icons/icon-pencil-grey.svg" alt="">
             </button>
 
             <div class="menu">
@@ -212,9 +202,14 @@
                 width: 25px;
                 height: 25px;
                 margin-right: 5px;
+                border-radius: 2px;
                 display: none;
                 @media screen and (max-width: 600px) {
                     display: flex;
+                }
+
+                &:hover{
+                    background: rgba(99, 95, 199, .2);
                 }
             }
 
